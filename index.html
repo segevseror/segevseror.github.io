@@ -2,69 +2,117 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Shop</title>
-        <script src="main.js"></script>
-        <script src="mshop.js"></script>
-        <link rel="stylesheet" href="styles.css">
+        <title></title>
+
+        <script>
+
+            var cards = ["emoji-1.png","emoji-2.png","emoji-3.png","emoji-4.png","emoji-5.png", "emoji-6.png","emoji-7.png","emoji-8.png","emoji-9.png","emoji-10.png","emoji-1.png","emoji-2.png","emoji-3.png","emoji-4.png","emoji-5.png", "emoji-6.png","emoji-7.png","emoji-8.png","emoji-9.png","emoji-10.png"];
+
+            var pushtwo = 0;
+            var move=0;
+
+            function prin(){
+
+                cards = shuffle(cards);
+
+                var Borad = document.getElementById("BD");
+                Borad.innerHTML ="";
+
+
+                for(var i = 1 ; i <cards.length;i++){
+
+                    var newcard = document.createElement("img");
+                    newcard.width = 100;
+                    newcard.height = 150;
+                    newcard.id = "card=" + i;
+                    newcard.src = "imge/backCard.jpg";
+                    newcard.addEventListener('click' , function(){
+
+                        check(this);
+                    });
+
+                    Borad.appendChild(newcard);
+
+                }
+            }
+
+
+            function check(elem){
+
+                stnum = elem.id;
+                sp = stnum.split("=");
+                numimge = Number(sp[1]);
+
+
+
+
+
+
+                if(move%2 == 0){
+
+
+
+
+                    elem.src = "imge/" + cards[numimge];
+
+
+                    onecard = numimge;
+                    onecard1 = cards[numimge];
+                }else{
+
+                    elem.src = "imge/" + cards[numimge];
+                    twocard= cards[numimge];
+
+
+                    if(onecard1 == twocard){
+                        elem.src = "imge/" + cards[numimge];
+
+                    }else{
+                        setTimeout(function(){
+
+                            elem.src = "imge/backCard.jpg";
+
+
+
+                            onedone = "card="+ onecard;
+                            console.log(onedone);
+                            document.getElementById(onedone).src = "imge/backCard.jpg";
+
+
+                        },500);
+
+                    }
+                }
+
+                move++;
+            }
+
+            function shuffle(shuff){
+                var numrandom;
+                var num1;
+                for(i = shuff.length -1; i>0; i--){
+                    numrandom = Math.floor(Math.random()*i);
+
+                    num1 = shuff[i];
+                    shuff[i] = shuff[numrandom];
+                    shuff[numrandom] = num1;
+
+
+                }
+                return(shuff);
+            }
+
+
+        </script>
+
 
 
     </head>
-    <body onload="total()">
-
-        <div id="products-main" class="">
+    <body>
 
 
+        <input type="button" onclick="prin()" value="start">
+        <div id="BD"></div>
 
-            <div id="totals">
-
-                <b>Total items in cart: </b>
-                <span id="total"></span><br><br>
-                <a href="shop.html">Checkout</a> | 
-                <a href="#" onclick="cart.clear()">Clear cart</a>
-                <hr>
-
-            </div>
-
-
-            <div class="product">
-               
-                <h2>HP Meckbook G4653D2</h2>
-                <p>leptop G4653D2 , i7 3400mgh 4GB DDR3</p><br> <hr>
-                <b>Price on site: </b>1300$<br>
-                <input type="button" class="add" value="Add to cart" onclick="cart.add(this, 1 , 'HP Mecbook 3400' ,1300 , 1)">
-            </div>
-
-
-
-
-
-            <div class="product">
-               
-                <h2>acer Meckbook G4653D2</h2>
-                <p>leptop G4653D2 , i7 3400mgh 4GB DDR3</p><br> <hr>
-                <b>Price on site: </b>2300$<br>
-                <input type="button" class="add" value="Add to cart" onclick="cart.add(this, 2 , 'ace Mecbook 3400' ,2300 , 1)">
-            </div>
-
-
-
-
-            <div class="product">
-              
-                <h2>Dell D4500 i5 2.12ghz</h2>
-                <p>leptop 320 ,4gb ddr3 Memory</p><br> <hr>
-                <b>Price on site: </b>3000$<br>
-                <input type="button" class="add" value="Add to cart" onclick="cart.add(this, 3 , 'Samsung UE55KU7000' ,3000 , 1)">
-
-            </div>
-
-
-
-
-
-
-
-
-        </div>
     </body>
 </html>
