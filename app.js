@@ -39,7 +39,6 @@ izik.add = function(){
     }else{
         alert("dsadsa")
     }
-    
     location.reload();
     }
 
