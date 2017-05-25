@@ -40,6 +40,7 @@ izik.add = function(){
         alert("dsadsa")
     }
     location.reload();
+    console.log("loca");
     }
 
 
