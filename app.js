@@ -33,11 +33,9 @@ izik.add = function(){
 
     }
     list.guest.push(user);
-    console.log(list.guest)
-
     localStorage.setItem('list' , JSON.stringify(list));
         location.reload();
-    console.log("loca");
+   
     }else{
         alert("dsadsa")
     }
