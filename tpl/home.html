@@ -1,0 +1,55 @@
+<div ng-controller="homeController">
+ <div class="left"> 
+  <div class="search-box">
+    <input type="text" placeholder="Search a book:" ng-model="searchText.bookName">
+  </div>
+  <div class="book" ng-repeat="book in books | orderBy:sortBooks | filter:searchText">
+    <h2>{{ book.bookName }}<br />
+      <span>{{ book.bookAuther }} | {{book.bookDate}} </span> </h2>
+    <div class="bg"></div>
+    <div class="clr"></div>
+    <br>
+    <img ng-src="images/{{book.bookImage}}" alt="{{book.bookName}} book imges" height="200" class="floated" />
+    <p> {{ book.bookDescription }} </p>
+    <p><a href="#">read more about...</a></p>
+    <p class="price">Price on site: {{book.bookPrice}}$</p>
+    <br>
+    
+    <div class="bg"></div>
+  </div>
+</div>
+<div class="right">
+  <select id="soflow" ng-model="sortBooks" ng-change="changeSort()">
+    <option value="+bookName">Sort by book name</option>
+    <option value="+bookAuther">Sort by writer</option>
+  </select>
+  <h3>Order books by price</h3>
+  <div class="bg"></div>
+  <ul id="sort-price-links">
+    <li><a href="" ng-click="sortByPrice('+bookPrice')">Low to high</a></li>
+    <li><a href="" ng-click="sortByPrice('-bookPrice')">High to low</a></li>
+  </ul>
+  <h3>Categories</h3>
+  <div class="bg"></div>
+	<ul class="sponsors">
+	  <li class="sponsors">
+		<input type="checkbox" ng-model="Adventures" ng-click="filterCategories()">
+		<label>Adventures</label>
+		<br />
+		Donec libero. Suspendisse bibendum
+	  </li>
+	  <li class="sponsors">
+		<input type="checkbox" ng-model="Drama" ng-click="filterCategories()">
+		<label>Drama</label>
+		<br />
+		Donec libero. Suspendisse bibendum
+	  </li>
+	  <li class="sponsors">
+		<input type="checkbox" ng-model="Children" ng-click="filterCategories()">
+		<label>Children</label>
+		<br />
+		Donec libero. Suspendisse bibendum
+	  </li>
+	</ul>
+</div>
+</div>
