@@ -104,7 +104,7 @@ var bookApp = angular.module("booksModule", ["ngRoute"])
     
     setLinksRefresh($route.current.$$route.originalPath)
    
-    setLinksRefresh(2)    
+      
 
 
     $rootScope.title = $route.current.$$route.pageTitle;
@@ -117,7 +117,7 @@ var bookApp = angular.module("booksModule", ["ngRoute"])
     
     setLinksRefresh($route.current.$$route.originalPath)
 
-    setLinksRefresh(1)
+    
    
 
 
