@@ -23,7 +23,7 @@ var bookApp = angular.module("booksModule", ["ngRoute"])
 })
 .controller("homeController", function($rootScope , $scope , $route , $http ){
 
-    
+    /*this new fun*/
     setLinksRefresh($route.current.$$route.originalPath)
 
     
