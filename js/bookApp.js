@@ -21,9 +21,13 @@ var bookApp = angular.module("booksModule", ["ngRoute"])
     };
 
 })
-.controller("homeController", function($rootScope , $scope , $route , $http){
+.controller("homeController", function($rootScope , $scope , $route , $http ){
 
-    setLinksRefresh(0)
+    
+     
+    setLinksRefresh($route.current.$$route.originalPath)
+    
+   
     
     
 
@@ -97,6 +101,8 @@ var bookApp = angular.module("booksModule", ["ngRoute"])
 
 .controller("contactController", function($rootScope , $scope , $route){
     
+    
+    setLinksRefresh($route.current.$$route.originalPath)
    
     setLinksRefresh(2)    
 
@@ -108,6 +114,8 @@ var bookApp = angular.module("booksModule", ["ngRoute"])
 
 .controller("aboutController", function($rootScope , $scope , $route){
 
+    
+    setLinksRefresh($route.current.$$route.originalPath)
 
     setLinksRefresh(1)
    
@@ -151,17 +159,21 @@ var getCategories = function(books){
 
 }
 
-function setLinksRefresh(spn){
-    var span =  document.querySelectorAll(".menu ul li span");
-var links =  document.querySelectorAll(".menu ul li a");
-
-    for(var x = 0 ; x<links.length ;x++){
-
-        links[x].className = "";
-
+function setLinksRefresh(spn , $route){
+   
+    var span =  document.querySelectorAll(".menu ul li a");
+   
+   for(var x = 0 ; x< span.length ; x++){
+        
+        if(span[x].className == spn){
+            console.log("dsa")
+             angular.element(span[x]).addClass("active"); 
+        }
+        
+        
     }
-
-    angular.element(span[spn]).parent().addClass("active");   
+   /* if($route.current.loadedTemplateUrl == )*/
+   /* angular.element(span[spn]).parent().addClass("active"); */  
 
 
 }
