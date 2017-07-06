@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Shop</title>
+        <script src="main.js"></script>
+        <script src="mshop.js"></script>
+        <link rel="stylesheet" href="styles.css">
+
+
+    </head>
+    <body onload="total()">
+
+        <div id="products-main" class="">
+
+
+
+            <div id="totals">
+
+                <b>Total items in cart: </b>
+                <span id="total"></span><br><br>
+                <a href="shop.html">Checkout</a> | 
+                <a href="#" onclick="cart.clear()">Clear cart</a>
+                <hr>
+
+            </div>
+
+
+            <div class="product">
+               
+                <h2>HP Meckbook G4653D2</h2>
+                <p>leptop G4653D2 , i7 3400mgh 4GB DDR3</p><br> <hr>
+                <b>Price on site: </b>1300$<br>
+                <input type="button" class="add" value="Add to cart" onclick="cart.add(this, 1 , 'HP Mecbook 3400' ,1300 , 1)">
+            </div>
+
+
+
+
+
+            <div class="product">
+               
+                <h2>acer Meckbook G4653D2</h2>
+                <p>leptop G4653D2 , i7 3400mgh 4GB DDR3</p><br> <hr>
+                <b>Price on site: </b>2300$<br>
+                <input type="button" class="add" value="Add to cart" onclick="cart.add(this, 2 , 'ace Mecbook 3400' ,2300 , 1)">
+            </div>
+
+
+
+
+            <div class="product">
+              
+                <h2>Dell D4500 i5 2.12ghz</h2>
+                <p>leptop 320 ,4gb ddr3 Memory</p><br> <hr>
+                <b>Price on site: </b>3000$<br>
+                <input type="button" class="add" value="Add to cart" onclick="cart.add(this, 3 , 'Samsung UE55KU7000' ,3000 , 1)">
+
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+    </body>
+</html>
